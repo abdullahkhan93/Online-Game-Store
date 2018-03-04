@@ -1,0 +1,58 @@
+{% extends 'developer.html' %}
+{% load staticfiles %}
+
+{% block developerContent %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.min.js"></script>
+    <script type="text/javascript" src="{% static 'gameSaleStatistics.js' %}"></script>
+    <script type="text/javascript" src="{% static 'gamestoreAJAX.js' %}"></script>
+
+    <script type="text/javascript">
+        const GAME_ID = '{{ game.gameID }}';
+    </script>
+
+    <div class="panel-body" id="devpage-content" style="padding-top: 0px;">
+        <div class=row>
+            <ul class="nav nav-tabs nav-justified">
+                <li class="active"><a href="#statistics" data-toggle="tab">Statistics</a></li>
+                <li><a href="#editgame" data-toggle="tab">Edit Game</a></li>
+            </ul>
+        </div>
+
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="statistics" style="padding-top: 24px;">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <canvas id="myChart" style="width:100%;height:400px;"></canvas>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <table class="table" id="sales-totals">
+                            <tbody>
+                                <tr>
+                                    <th>Total units sold</th>
+                                    <th id="sales-totals-units">0</th>
+                                </tr>
+                                <tr>
+                                    <th>Total sales revenue</th>
+                                    <th id="sales-totals-revenue">0</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="button btn btn-default" id="get-gamestats">
+                            <span class="glyphicon glyphicon-refresh"></span>
+                        </button>
+                    </div>
+            </div>
+
+            <div class="tab-pane fade" id="editgame">
+                <div class="panel-body">
+                        <!-- todo: move add game to dev views -->
+                    <form method="post" enctype="multipart/form-data"> 
+                        {% csrf_token %}
+                        {% include "bootstrapForm.html" %}
+                        <button type="submit" class="button btn btn-info">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock developerContent %}

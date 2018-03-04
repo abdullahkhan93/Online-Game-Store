@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <title>The Game Store</title>
+    <head>
+    	<link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwREeEaRKkMv3tiYulRqSLLkXKbo6WVHOkjUN6Mmf3QUPKx1fM" type="image/x-icon" />
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/js/jquery.fs.selecter.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/js/jquery.fs.stepper.min.js"></script>
+        <link rel="stylesheet" href="{% static 'base.css' %}"> 
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+            {% comment %}<a class="navbar-brand" href="#">Navbar</a>{% endcomment %}
+            <div class="container-fluid">
+                {% with request.resolver_match.url_name as url_name %}
+                <ul class="nav navbar-nav">
+                    <li class="{% if url_name == 'shop' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'shop' %}">SHOP</a>
+                    </li>
+                    <li class="{% if url_name == 'library' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'library' %}">LIBRARY</a>
+                    </li>
+                    <li class="{% if url_name == 'developer' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'developer' %}">DEV</a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li><p class="navbar-text user-name">logged in as {{ user.username }}</p></li>
+                        <li class="dropdown user-settings">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-cog"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'logout' %}">log out</a></li>
+                                <li><a href="{% url 'changeuser' %}">change account</a></li>
+                                <li><a href="{% url 'becomeDev' %}">become a developer</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">log in</a></li>
+                    {% endif %}
+                </ul>
+
+                {% endwith %}
+            </div>
+        </nav>
+
+        <div class="container" style="height: 100%">
+            {% block content %}{% endblock content %}
+        </div>
+    </body>
+</html>

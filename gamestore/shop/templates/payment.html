@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="panel panel-info" style="display: inline-block;">
+    <div class="panel-heading">
+        <h3 class="panel-title">Accept payment</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="http://payments.webcourse.niksula.hut.fi/pay/" method="POST" class="form-inline">
+            <input type="hidden" name="pid" value="{{pid}}" />
+            <input type="hidden" name="sid" value="{{sid}}" />
+            <input type="hidden" name="success_url"
+                value="{{base_url}}{% url 'purchaseSuccess' %}" />
+            <input type="hidden" name="cancel_url"
+                value="{{base_url}}{% url 'purchaseFail' %}" />
+            <input type="hidden" name="error_url"
+                value="{{base_url}}{% url 'purchaseFail' %}" />
+            <input type="hidden" name="checksum"
+                value="{{checksum}}" />
+            <div class="form-group">
+                <label for="id_amount">Amount</label>
+                <input type="text" id="id_amount" name="amount" value="{{price}}" class="form-control"/>
+            </div>
+            <input type="submit" value="Accept Payment" class="button btn btn-info"/>
+        </form>
+
+        <p style="margin-top: 15px; margin-bottom: 0px" class="text-muted">You will be redirected to a third-party payment service</p>
+        
+    </div>
+</div>
+{% endblock %}

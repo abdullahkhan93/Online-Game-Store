@@ -1,0 +1,17 @@
+how 2 demonstarte login
+
+1) create user with
+    python manage.py createsuperuser
+    existing superuser:
+    name: bigboss
+    pswd: bigboss1
+
+
+2)
+    python manage.py makemigrations
+    python manage.py migrate
+    python manage.py runserver
+
+3) test http://127.0.0.1:8000/login/login/
+                                   /logout/
+                                   /authcheck/ <- conditional rendering base on if user is logged in

@@ -1,0 +1,52 @@
+.gi-center {
+    position: inherit;
+    vertical-align: middle;
+    color: #aab2bd;
+    padding-right: 0.5em;
+}
+
+a:hover > .gi-center, .gi-center:active {
+    color: #FFF;
+}
+
+body {
+    background-color: #848e96;
+}
+
+.genre {
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+    margin-left: 0.5em;
+}
+
+.jumbotron-photo {
+    background-color: #ccd1d9;
+}
+
+/* selectors for forms */
+.form-group > ul.errorlist {
+    color: #da4453;
+    list-style-type: none;
+}
+
+.form-group > ul {
+    color: #777;
+}
+
+/* navbar stuff */
+
+p.user-name {
+    margin-right: 0px;
+}
+
+.dev-header {
+    margin: 0px;
+}
+
+.va-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

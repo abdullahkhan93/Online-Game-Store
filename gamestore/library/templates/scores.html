@@ -1,0 +1,7 @@
+{% for score in scores %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ score.userID }}</td>
+        <td>{{ score.score }}</td>
+    </tr>
+{% endfor %}

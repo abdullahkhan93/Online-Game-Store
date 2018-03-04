@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block content %}
+
+    {% include "messages.html" %}
+
+    <link rel="stylesheet" href="{% static 'shop.css' %}"> 
+    <script type="text/javascript" src="{% static 'genreselector.js' %}"></script>
+
+    <!-- genre selection -->
+    <div class="panel panel-default">
+        <div class="panel-body">
+                <button id="genre-filter" class="btn btn-info inline-btn pull-right">Filter genres</button>
+                <span class="filter-tabs">
+                {% for genre in genres %}
+                    <span class="badge genre" data-genre={{genre.genreID}}>{{ genre.name }} + </span>
+                {% endfor %}
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <div class="row">
+    {% for game in games %}
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 game-container" data-genre={{game.genreID.genreID}}>
+                <div class="thumbnail">
+                    <!-- <h4>{{ game.name }}</h4>
+                    <p>Genre: {{ game.genreID.name }}</p>
+                    <p>Description: {{ game.description }}</p> -->
+                    <div class="image-container">
+                        <img src="{{ game.image }}"></img>
+                        <div class="game-title">{{ game.name }}</div>
+                    </div>
+                    {% if game not in ownedGames %}
+                        <a class="button btn btn-info btn-block" href={{ game.gameID }}>Buy {{game.price}}€</a>
+                    {% else %}
+                        <a class="button btn btn-info btn-block" href={{ game.gameID }}>Game owned</a>
+                    {% endif %}
+                </div>
+            </div>
+
+    {% endfor %}
+    </div>
+{% endblock content %}

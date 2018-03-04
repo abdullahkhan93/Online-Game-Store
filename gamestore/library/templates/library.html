@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static from staticfiles %}
+
+{% block content %}
+
+    {% include "messages.html" %}
+
+    <link rel="stylesheet" href="{% static 'shop.css' %}"> 
+
+    <div class="row">
+    {% for game in games %}
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 game-container" >
+                <div class="thumbnail">
+                    <!-- <h4>{{ game.name }}</h4>
+                    <p>Genre: {{ game.genreID.name }}</p>
+                    <p>Description: {{ game.description }}</p> -->
+                    <div class="image-container">
+                        <img src="{{ game.image }}"></img>
+                        <div class="game-title">{{ game.name }}</div>
+                    </div>
+                    <a class="button btn btn-info btn-block" href="game/{{ game.gameID }}">Play</a>
+                </div>
+            </div>
+
+    {% endfor %}
+    </div>
+{% endblock content %}

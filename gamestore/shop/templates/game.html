@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <div class="jumbotron-photo"><img src={{game.image}} style="max-height: 30vh; width: auto;"></div>
+        <div class="jumbotron-contents">
+            <p><h1 style="display: inline">{{game.name}}</h1> <span class="badge genre">{{ game.genreID.name }}</span></p>
+
+            <p>{{game.description}}</p>
+            <a class="button btn btn-default" href="{% url 'shop' %}"><span class="glyphicon glyphicon-chevron-left gi-center"></span>Go back</a>
+            {% if owned == False %}
+                <a class="button btn btn-info btn-right" style="float: right;" href="purchase/">Buy {{game.price}}</a>
+            {% else %}
+                <a class="button btn btn-info btn-right" style="float: right;" href="purchase/" disabled>Game owned</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

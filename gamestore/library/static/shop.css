@@ -1,0 +1,33 @@
+.image-container {
+    width: 100%;
+    text-align: center;  
+    position:relative;
+    overflow:hidden;
+    padding-bottom:100%;
+}
+
+.image-container img{
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.game-title {
+    background-color: rgba(0,0,0, 0.4);
+    color: #FFF;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    border-radius: 4px;
+    border: 4px;
+    display: block;
+}
+
+.filter-tabs {
+    display:inline-block;
+    vertical-align: middle;
+}

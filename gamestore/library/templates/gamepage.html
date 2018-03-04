@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'gamepage.css' %}"> 
+    <script type="text/javascript" src="{% static 'gamestoreAJAX.js' %}"></script>
+    <script type="text/javascript" src="{% static 'gamepage.js' %}"></script>
+
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <div class="aspect-ratio">
+            <iframe id="game" frameborder="0" src={{ game.url }}></iframe>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+        {% include 'scoreboard.html' %}
+    </div>
+
+    </div>
+{% endblock %}

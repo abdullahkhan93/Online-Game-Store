@@ -1,0 +1,17 @@
+<div class="panel panel-default" id="highscore-container">
+    <div class="panel-heading">Highscores - {{ game.name }}</div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Username</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+
+      <tbody id="highscores">
+        {% include 'scores.html' %}
+      </tbody>
+    </table>
+</div>

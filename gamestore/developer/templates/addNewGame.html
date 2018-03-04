@@ -1,0 +1,12 @@
+{% extends 'developer.html' %}
+
+{% block developerContent %}
+    <div class="panel-body">
+            <!-- todo: move add game to dev views -->
+        <form method="post" action="addgame/" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            {% include "bootstrapForm.html" %}
+            <button type="submit" class="button btn btn-info">Add new game</button>
+        </form>
+    </div>
+{% endblock developerContent %}

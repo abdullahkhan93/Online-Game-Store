@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include "messages.html" %}
+    <div class="panel panel-default" style="height: 100%;">
+        <div class="panel-heading clearfix">
+            <h5 class="dev-header va-container">
+                {{ devpageTitle }}
+                <div class="btn-group">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        Your games
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{% url 'developer' %} ">Add new game</a></li>
+                        <li class="divider"></li>
+                        {% for game in games %}
+                            <li><a href="{% url 'editGame' game.gameID %}">{{game.name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </h5>
+        </div>
+        {% block developerContent %}
+        {% endblock developerContent %}
+    </div>
+
+{% endblock content %}

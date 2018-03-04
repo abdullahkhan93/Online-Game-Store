@@ -1,0 +1,20 @@
+{% load addCSS %}
+
+{% comment %} <div style="color: #a94442;">
+    {{ form.errors.as_text }}
+</div> {% endcomment %}
+{% for field in form %}
+    {% if field.errors %}
+        <div class="form-group has-error has-feedback">
+            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    {% else %}
+        <div class="form-group">
+    {% endif %}
+            {{ field.label_tag }}
+            {{ field|addCSS:"form-control"}}
+            {% if field.help_text %}
+                <p class="form-text text-muted">{{ field.help_text|safe }}</p>
+                {{ field.errors|safe }}
+            {% endif %}
+        </div>
+{% endfor %}
