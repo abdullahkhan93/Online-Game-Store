@@ -78,7 +78,7 @@ Muhammad Abdullah Khan
 ### 4.2 Steps
 
     heroku login (Enter credentials for heroku)  
-    heroku create --buildpack heroku/python) (Heroku App buildpack creation)  
+    heroku create --buildpack heroku/python (Heroku App buildpack creation)  
     heroku git:remote -a <Name of the app on heroku>  
     git push heroku <your-branch-name>:master  
 
