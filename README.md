@@ -20,14 +20,8 @@ Muhammad Abdullah Khan
     -Mobile friendly  
     -Dynamic, responsive and clean user interface design  
     -Secure  
-    
-### 2.2 Workflow
 
-    -Git repository  
-    -Task list (google docs) and schedule  
-    -Weekly meetings  
-
-### 2.3 Model
+### 2.2 Model
 
     -Django backend  
         -Shop view: The user can browse the games catalog here, and buy games  
@@ -44,7 +38,7 @@ Muhammad Abdullah Khan
 
 ![architecture](docs/architecture.png)
     
-### 2.4 Features
+### 2.3 Features
     -Authentication  
         -User account registration with e-mail verification  
         -Developer and player accounts  
@@ -56,7 +50,7 @@ Muhammad Abdullah Khan
     -Own game  
     -RESTful API  
     -3rd party login  
-        -Google and Facebook accounts
+        -Google account
   
 ## 3 Setup Instructions
 
