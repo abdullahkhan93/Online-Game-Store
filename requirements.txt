@@ -16,7 +16,7 @@ django-haystack==2.4.0
 django-picklefield==0.3.2
 django-social-auth3==0.7.23
 django-taggit==0.17.1
-djangorestframework==3.2.3
+djangorestframework==3.11.2
 fake-factory==0.5.7
 future==0.15.2
 gunicorn==19.7.1
