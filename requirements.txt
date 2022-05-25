@@ -34,7 +34,7 @@ pickleshare==0.6
 Pillow==5.2.0
 psycopg2==2.7.3.2
 ptyprocess==0.5.1
-PyJWT==1.5.3
+PyJWT==2.4.0
 pysolr==3.3.2
 python-dateutil==2.4.2
 python-openid3==2.2.6
