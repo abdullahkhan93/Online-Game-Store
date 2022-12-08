@@ -4,7 +4,7 @@ arrow==0.7.0
 billiard==3.3.0.23
 blessed==1.14.1
 celery==3.1.21
-certifi==2018.1.18
+certifi==2022.12.7
 chardet==3.0.4
 decorator==4.0.9
 defusedxml==0.5.0
